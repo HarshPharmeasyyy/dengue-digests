@@ -1,24 +1,1663 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dengue-digests</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-
-    <meta property="og:title" content="dengue-digests" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dengue: The Silent Threat of the Monsoon Season - PharmEasy Research</title>
+    <meta name="description" content="Understanding dengue patterns, demographics, and seasonal trends through PharmEasy Lab data and global research insights.">
+    <meta name="author" content="PharmEasy">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <style>
+        /* CSS Variables for Design System */
+        :root {
+            /* PharmEasy inspired color scheme */
+            --primary: 62 80% 60%;
+            --primary-glow: 62 95% 85%;
+            --secondary: 200 85% 55%;
+            --health-primary: 174 70% 41%;
+            --health-secondary: 200 85% 55%;
+            --health-info: 213 94% 68%;
+            --health-success: 142 69% 58%;
+            --health-warning: 45 93% 58%;
+            --health-danger: 0 84% 60%;
+            
+            /* Base colors */
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+            --muted: 210 40% 98%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 98%;
+            --accent-foreground: 222.2 47.4% 11.2%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 222.2 84% 4.9%;
+            --radius: 0.5rem;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, hsl(var(--health-primary)), hsl(var(--health-info)));
+            --gradient-hero: linear-gradient(135deg, hsl(var(--health-primary)), hsl(var(--health-secondary)));
+            --gradient-secondary: linear-gradient(135deg, hsl(var(--health-info)), hsl(var(--primary-glow)));
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-elegant: 0 10px 30px -10px hsl(var(--health-primary) / 0.3);
+            
+            /* Transitions */
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dark {
+            --background: 222.2 84% 4.9%;
+            --foreground: 210 40% 98%;
+            --card: 222.2 84% 4.9%;
+            --card-foreground: 210 40% 98%;
+            --popover: 222.2 84% 4.9%;
+            --popover-foreground: 210 40% 98%;
+            --muted: 217.2 32.6% 17.5%;
+            --muted-foreground: 215 20.2% 65.1%;
+            --accent: 217.2 32.6% 17.5%;
+            --accent-foreground: 210 40% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 217.2 32.6% 17.5%;
+            --input: 217.2 32.6% 17.5%;
+            --ring: 212.7 26.8% 83.9%;
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: hsl(var(--foreground));
+            background-color: hsl(var(--background));
+            overflow-x: hidden;
+        }
+        
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #e5e7eb 0%, #e5e7eb 100%);
+            z-index: 1000;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        /* Table of Contents */
+        .toc-container {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .toc-toggle {
+            background: hsl(var(--health-primary));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .toc-toggle:hover {
+            background: hsl(var(--health-primary) / 0.9);
+            transform: scale(1.05);
+        }
+        
+        .toc-content {
+            position: absolute;
+            left: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            padding: 16px;
+            min-width: 280px;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+        
+        .toc-content.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-item {
+            margin-bottom: 8px;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: hsl(var(--foreground));
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            font-weight: 500;
+        }
+        
+        .toc-link:hover,
+        .toc-link.active {
+            background: hsl(var(--health-primary) / 0.1);
+            color: hsl(var(--health-primary));
+        }
+        
+        /* Social Share Bar */
+        .share-bar {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: white;
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .share-button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            color: white;
+        }
+        
+        .share-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .share-whatsapp { background: #25D366; }
+        .share-facebook { background: #1877F2; }
+        .share-linkedin { background: #0A66C2; }
+        .share-reddit { background: #FF4500; }
+        .share-telegram { background: #0088CC; }
+        
+        /* Container and Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)" /></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            margin-bottom: 48px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        /* Section Styles */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: hsl(var(--muted-foreground));
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition-smooth);
+            height: 100%;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition-smooth);
+        }
+        
+        .stat-card.hero-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        .stat-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: hsl(var(--muted-foreground));
+        }
+        
+        .stat-card.hero-card .stat-title {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: hsl(var(--health-primary));
+            margin-bottom: 8px;
+        }
+        
+        .stat-card.hero-card .stat-value {
+            color: white;
+        }
+        
+        .stat-description {
+            font-size: 12px;
+            color: hsl(var(--muted-foreground));
+        }
+        
+        .stat-card.hero-card .stat-description {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        /* Read More Card */
+        .read-more-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+        }
+        
+        .read-more-button {
+            width: 100%;
+            padding: 16px 24px;
+            background: transparent;
+            border: 2px solid hsl(var(--health-primary));
+            color: hsl(var(--health-primary));
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 24px;
+        }
+        
+        .read-more-button:hover {
+            background: hsl(var(--health-primary));
+            color: white;
+        }
+        
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .expandable-content.expanded {
+            max-height: none;
+        }
+        
+        /* Medical Insight */
+        .medical-insight {
+            background: linear-gradient(135deg, hsl(var(--health-primary) / 0.05), hsl(var(--health-info) / 0.05));
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+            border-left: 4px solid hsl(var(--health-primary));
+        }
+        
+        .medical-insight-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .medical-insight-icon {
+            width: 48px;
+            height: 48px;
+            background: hsl(var(--health-primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .medical-insight-title {
+            font-weight: 600;
+            color: hsl(var(--health-primary));
+        }
+        
+        .medical-insight-quote {
+            font-style: italic;
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .medical-insight-author {
+            font-weight: 600;
+            color: hsl(var(--muted-foreground));
+        }
+        
+        /* Alert Boxes */
+        .alert-box {
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+            border-left: 4px solid;
+        }
+        
+        .alert-danger {
+            background: hsl(var(--health-danger) / 0.1);
+            border-color: hsl(var(--health-danger));
+            color: hsl(var(--health-danger));
+        }
+        
+        .alert-info {
+            background: hsl(var(--health-info) / 0.1);
+            border-color: hsl(var(--health-info));
+            color: hsl(var(--health-info));
+        }
+        
+        .alert-warning {
+            background: hsl(var(--health-warning) / 0.1);
+            border-color: hsl(var(--health-warning));
+            color: hsl(var(--health-warning));
+        }
+        
+        /* Images */
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in-up.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .toc-container,
+            .share-bar {
+                display: none;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .card,
+            .read-more-card {
+                padding: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Button Styles */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: hsl(var(--health-primary));
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: hsl(var(--health-primary) / 0.9);
+        }
+        
+        /* Prevention Tips Grid */
+        .prevention-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .prevention-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 24px;
+            background: hsl(var(--muted) / 0.5);
+            border-radius: 12px;
+        }
+        
+        .prevention-tip-icon {
+            width: 40px;
+            height: 40px;
+            background: hsl(var(--health-success));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .prevention-tip-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .prevention-tip-description {
+            font-size: 14px;
+            color: hsl(var(--muted-foreground));
+        }
+        
+        /* Loading state */
+        .loading {
+            opacity: 0;
+        }
+        
+        .loaded {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+    
+    <!-- Table of Contents -->
+    <div class="toc-container">
+        <button class="toc-toggle" id="tocToggle" aria-label="Table of Contents">
+            <i data-feather="menu"></i>
+        </button>
+        <div class="toc-content" id="tocContent">
+            <h3 style="margin-bottom: 16px; font-weight: 600;">Table of Contents</h3>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#hero" class="toc-link">Introduction</a></li>
+                <li class="toc-item"><a href="#introduction" class="toc-link">Why Dengue Matters</a></li>
+                <li class="toc-item"><a href="#trends" class="toc-link">Trend Analysis</a></li>
+                <li class="toc-item"><a href="#monsoon" class="toc-link">Monsoon Link</a></li>
+                <li class="toc-item"><a href="#exposure" class="toc-link">Risk Factors</a></li>
+                <li class="toc-item"><a href="#symptoms" class="toc-link">Symptoms</a></li>
+                <li class="toc-item"><a href="#geographic" class="toc-link">Geographic Impact</a></li>
+                <li class="toc-item"><a href="#seasonal" class="toc-link">Seasonal Trends</a></li>
+                <li class="toc-item"><a href="#queries" class="toc-link">Common Queries</a></li>
+                <li class="toc-item"><a href="#prevention" class="toc-link">Prevention</a></li>
+                <li class="toc-item"><a href="#demographics" class="toc-link">Demographics</a></li>
+                <li class="toc-item"><a href="#conclusion" class="toc-link">Conclusion</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Social Share Bar -->
+    <div class="share-bar">
+        <button class="share-button share-whatsapp" onclick="shareOn('whatsapp')" title="Share on WhatsApp">
+            <i data-feather="message-circle"></i>
+        </button>
+        <button class="share-button share-facebook" onclick="shareOn('facebook')" title="Share on Facebook">
+            <i data-feather="facebook"></i>
+        </button>
+        <button class="share-button share-linkedin" onclick="shareOn('linkedin')" title="Share on LinkedIn">
+            <i data-feather="linkedin"></i>
+        </button>
+        <button class="share-button share-reddit" onclick="shareOn('reddit')" title="Share on Reddit">
+            <i data-feather="share-2"></i>
+        </button>
+        <button class="share-button share-telegram" onclick="shareOn('telegram')" title="Share on Telegram">
+            <i data-feather="send"></i>
+        </button>
+    </div>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-content fade-in-up">
+                    <h1 class="hero-title">
+                        Dengue: The Silent Threat of the Monsoon Season
+                    </h1>
+                    <p class="hero-subtitle">
+                        Understanding dengue patterns, demographics, and seasonal trends through
+                        PharmEasy Lab data and global research insights.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-card hero-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Study Duration</span>
+                                <i data-feather="calendar"></i>
+                            </div>
+                            <div class="stat-value">26 Months</div>
+                        </div>
+                        <div class="stat-card hero-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Lab Tests</span>
+                                <i data-feather="activity"></i>
+                            </div>
+                            <div class="stat-value">770K+</div>
+                        </div>
+                        <div class="stat-card hero-card">
+                            <div class="stat-header">
+                                <span class="stat-title">States Covered</span>
+                                <i data-feather="map-pin"></i>
+                            </div>
+                            <div class="stat-value">40+</div>
+                        </div>
+                        <div class="stat-card hero-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Peak Season</span>
+                                <i data-feather="droplets"></i>
+                            </div>
+                            <div class="stat-value">Aug-Oct</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Introduction Section -->
+        <section id="introduction" class="section" style="background: white;">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-primary) / 0.1); color: hsl(var(--health-primary));">
+                        INTRODUCTION
+                    </span>
+                    <h2 class="section-title">Why Dengue Deserves Your Attention?</h2>
+                </div>
+                
+                <div class="read-more-card fade-in-up">
+                    <div class="grid grid-2" style="gap: 32px;">
+                        <div>
+                            <p style="font-size: 18px; line-height: 1.6; margin-bottom: 24px;">
+                                We look forward to the monsoon, including the cool breeze, the scent of fresh rain, and a
+                                much-needed break from the summer heat. However, these are not the only things that
+                                monsoon brings!
+                            </p>
+                            <div class="alert-box alert-danger">
+                                <p style="font-weight: 600;">
+                                    In the case of dengue, taking action early is not only sensible, but it also saves lives.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="grid grid-2">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <span class="stat-title">Global Trend</span>
+                                    <i data-feather="search"></i>
+                                </div>
+                                <div class="stat-value" style="color: hsl(var(--health-success));">Rising</div>
+                                <div class="stat-description">WHO reports increasing infections</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <span class="stat-title">Risk Level</span>
+                                    <i data-feather="droplets"></i>
+                                </div>
+                                <div class="stat-value" style="color: hsl(var(--health-success));">High</div>
+                                <div class="stat-description">During monsoon season</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="expandable-content" id="intro-expanded">
+                        <div style="margin-top: 32px; padding-top: 32px; border-top: 1px solid hsl(var(--border));">
+                            <p style="font-size: 18px; line-height: 1.6; margin-bottom: 24px;">
+                                The season also invites one of the most serious seasonal health risks, dengue, a
+                                mosquito-borne illness. It typically begins with mild symptoms, including fever and body
+                                aches. However, in some cases, it can quickly turn fatal. Symptoms such as sudden high
+                                fever, severe fatigue, joint pain, and low platelet counts make dengue a public health
+                                crisis that affects countless individuals across India every year.
+                            </p>
+                            
+                            <p style="font-size: 18px; line-height: 1.6;">
+                                According to the World Health Organisation (WHO), dengue infections are on the rise
+                                globally. In a country like India, where the monsoon season often signals an increase in
+                                dengue cases, awareness and early detection can significantly reduce the spread of the
+                                disease. This article uses diagnostic data from PharmEasy's lab network to understand
+                                how dengue patterns are changing across the nation. It also highlights when cases tend
+                                to spike, the health impact and the symptoms that should not be ignored.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <button class="read-more-button" onclick="toggleExpanded('intro-expanded', this)">
+                        <span>Read More</span>
+                        <i data-feather="chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trend Analysis Section -->
+        <section id="trends" class="section" style="background: hsl(var(--muted));">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-info) / 0.1); color: hsl(var(--health-info));">
+                        TREND ANALYSIS
+                    </span>
+                    <h2 class="section-title">How Dengue Trends Have Shifted Over the Years</h2>
+                </div>
+                
+                <div class="grid grid-2" style="gap: 48px; align-items: stretch;">
+                    <div class="card fade-in-up">
+                        <h3 style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-size: 20px; font-weight: 600;">
+                            <i data-feather="trending-up" style="color: hsl(var(--health-info));"></i>
+                            Key Findings
+                        </h3>
+                        <ul style="list-style: none; margin-bottom: 24px;">
+                            <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;">
+                                <span style="width: 8px; height: 8px; background: hsl(var(--health-success)); border-radius: 50%; margin-top: 12px; flex-shrink: 0;"></span>
+                                <span style="font-size: 16px; line-height: 1.6;">Tests increased annually with earlier seasonal testing (May vs June)</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 12px;">
+                                <span style="width: 8px; height: 8px; background: hsl(var(--health-info)); border-radius: 50%; margin-top: 12px; flex-shrink: 0;"></span>
+                                <span style="font-size: 16px; line-height: 1.6;">Positivity rate steadily decreasing due to increased awareness</span>
+                            </li>
+                        </ul>
+                        <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+                            Our lab data reveals a clear shift in dengue testing patterns. Over the past few
+                            years, not only has the total number of dengue tests increased annually, but people
+                            are also getting tested earlier in the season. For example, in 2024, we observed a
+                            notable rise in dengue test bookings starting as early as May, compared to June in
+                            previous years.
+                        </p>
+                        <p style="font-size: 16px; line-height: 1.6;">
+                            At the same time, as you can see, the dengue positivity rate has been steadily
+                            decreasing. This trend, in fact, reveals that increased public awareness is leading
+                            to more proactive testing. As more people are tested to determine the cause of their
+                            fever, the lower percentage of positive results suggests that other causes of fever,
+                            such as typhoid, influenza, and chikungunya, may be at play.
+                        </p>
+                    </div>
+                    
+                    <div class="fade-in-up" style="display: flex; flex-direction: column; gap: 24px;">
+                        <div class="card" style="flex: 1;">
+                            <img src="/lovable-uploads/199a9761-9bb6-4846-a301-f98f2ac126f6.png" 
+                                 alt="Dengue Testing Patterns Across Months in India" 
+                                 class="responsive-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Monsoon Section -->
+        <section id="monsoon" class="section" style="background: white;">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-secondary) / 0.1); color: hsl(var(--health-secondary));">
+                        DENGUE & MONSOON
+                    </span>
+                    <h2 class="section-title">The Monsoon-Dengue Link</h2>
+                </div>
+                
+                <div class="grid grid-2" style="gap: 48px; align-items: stretch;">
+                    <div class="card fade-in-up">
+                        <h3 style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-size: 20px; font-weight: 600;">
+                            <i data-feather="droplets" style="color: hsl(var(--health-secondary));"></i>
+                            Weather Conditions for Dengue
+                        </h3>
+                        <div class="grid grid-2" style="margin-bottom: 24px;">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <span class="stat-title">Temperature</span>
+                                    <i data-feather="thermometer"></i>
+                                </div>
+                                <div class="stat-value">>27°C</div>
+                                <div class="stat-description">Ideal for mosquito breeding</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <span class="stat-title">Humidity</span>
+                                    <i data-feather="droplets"></i>
+                                </div>
+                                <div class="stat-value">60-78%</div>
+                                <div class="stat-description">Perfect breeding conditions</div>
+                            </div>
+                        </div>
+                        <div class="alert-box alert-warning">
+                            <p style="font-weight: 600;">
+                                In short, dengue doesn't just coexist with the monsoon season; it shapes how the disease spreads.
+                            </p>
+                        </div>
+                        <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+                            Dengue follows a clear pattern tied to the Indian monsoon. Every year, when the
+                            rains begin in June, the humidity increases, creating an ideal breeding ground
+                            for mosquitoes, particularly in stagnant water. This also raises the risk of
+                            outbreaks. Lab data shows that dengue cases begin to rise in July, peak from
+                            August to October, and decline by December.
+                        </p>
+                        <p style="font-size: 16px; line-height: 1.6;">
+                            Warm temperatures above 27°C, combined with humidity levels between 60% and 78%,
+                            and steady rainfall, create ideal conditions for the Aedes mosquito to thrive.
+                            Therefore, it's fair to say that the weather plays a crucial role.
+                            Interestingly, very heavy rainfall can sometimes reduce mosquito numbers by
+                            washing away their larvae.
+                        </p>
+                    </div>
+                    
+                    <div class="card fade-in-up" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="/lovable-uploads/9c4a7074-ee55-42ae-a1ef-f98e10851f1e.png" 
+                             alt="How Mosquitoes Multiply During Monsoon" 
+                             class="responsive-image">
+                    </div>
+                </div>
+                
+                <div class="medical-insight fade-in-up">
+                    <div class="medical-insight-header">
+                        <div class="medical-insight-icon">
+                            <i data-feather="stethoscope"></i>
+                        </div>
+                        <div class="medical-insight-title">Medical Advice</div>
+                    </div>
+                    <div class="medical-insight-quote">
+                        "In India, we observe a significant surge in dengue cases during the monsoon season (June to September), primarily due to stagnant water becoming breeding grounds for mosquitoes. People must be particularly careful in this weather to avoid contact with female Aedes mosquito responsible for dengue, which can be identified by the distinct white lines it has on its legs and thorax."
+                    </div>
+                    <div class="medical-insight-author">
+                        <strong>Dr. Nayana Shetty</strong> MBBS MD
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Exposure & Risk Section -->
+        <section id="exposure" class="section" style="background: hsl(var(--muted));">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-warning) / 0.1); color: hsl(var(--health-warning));">
+                        EXPOSURE & RISK
+                    </span>
+                    <h2 class="section-title">Who is More Likely to be Affected?</h2>
+                </div>
+                
+                <div class="grid grid-2" style="gap: 48px; align-items: stretch;">
+                    <div class="card fade-in-up">
+                        <h3 style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-size: 20px; font-weight: 600;">
+                            <i data-feather="users" style="color: hsl(var(--health-warning));"></i>
+                            High-Risk Age Groups
+                        </h3>
+                        <div class="stat-card" style="margin-bottom: 24px;">
+                            <div class="stat-header">
+                                <span class="stat-title">Most Affected</span>
+                                <i data-feather="users"></i>
+                            </div>
+                            <div class="stat-value" style="color: hsl(var(--health-success));">Ages 11-30</div>
+                            <div class="stat-description">Highest dengue positivity rates</div>
+                        </div>
+                        <p style="font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+                            PharmEasy Labs data shows that individuals aged 11 to 30 have the highest dengue
+                            positivity rates when compared to other age groups. This trend likely reflects
+                            more outdoor activity and exposure.
+                        </p>
+                        <div class="medical-insight" style="margin: 0;">
+                            <div class="medical-insight-header">
+                                <div class="medical-insight-icon">
+                                    <i data-feather="stethoscope"></i>
+                                </div>
+                                <div class="medical-insight-title">Medical Advice</div>
+                            </div>
+                            <div class="medical-insight-quote">
+                                "If a family has children and elderly in their homes then they should proactively implement preventive steps because if these age groups get the infection then the chances of severe dengue is higher in them."
+                            </div>
+                            <div class="medical-insight-author">
+                                <strong>Dr. Nayana Shetty</strong> MBBS MD
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card fade-in-up" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="/lovable-uploads/a189f0be-aba0-4486-854a-552e896f3941.png" 
+                             alt="Who Is At More Risk infographic" 
+                             class="responsive-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Symptoms Section -->
+        <section id="symptoms" class="section" style="background: white;">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-danger) / 0.1); color: hsl(var(--health-danger));">
+                        SYMPTOMS & WARNING SIGNS
+                    </span>
+                    <h2 class="section-title">Recognizing Dengue Early</h2>
+                </div>
+                
+                <div class="grid grid-2" style="gap: 48px; align-items: stretch;">
+                    <div class="read-more-card fade-in-up">
+                        <h3 style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-size: 20px; font-weight: 600;">
+                            <i data-feather="alert-triangle" style="color: hsl(var(--health-danger));"></i>
+                            National Guidelines: Warning Symptoms
+                        </h3>
+                        <ul style="list-style: none; margin-bottom: 24px;">
+                            <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <span style="width: 8px; height: 8px; background: hsl(var(--health-danger)); border-radius: 50%; flex-shrink: 0;"></span>
+                                <span>Persistent vomiting</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <span style="width: 8px; height: 8px; background: hsl(var(--health-danger)); border-radius: 50%; flex-shrink: 0;"></span>
+                                <span>Abdominal pain and tenderness</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <span style="width: 8px; height: 8px; background: hsl(var(--health-danger)); border-radius: 50%; flex-shrink: 0;"></span>
+                                <span>Lethargy and/or restlessness</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 12px;">
+                                <span style="width: 8px; height: 8px; background: hsl(var(--health-danger)); border-radius: 50%; flex-shrink: 0;"></span>
+                                <span>Sudden behavioural changes</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="expandable-content" id="symptoms-expanded">
+                            <div style="padding-top: 24px; border-top: 1px solid hsl(var(--border));">
+                                <h4 style="font-weight: 600; margin-bottom: 16px;">When Dengue Turns Severe</h4>
+                                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+                                    The severity of symptoms in dengue fever varies from person to person. While most people recover after a short illness,
+                                    some experience severe complications due to leakage of plasma, bleeding, and a drop in BP.
+                                </p>
+                                <p style="font-size: 16px; line-height: 1.6;">
+                                    Serious cases of dengue or dengue haemorrhagic fever (DHF) can progress to dengue shock syndrome (DSS) if not
+                                    managed promptly in a hospital.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <button class="read-more-button" onclick="toggleExpanded('symptoms-expanded', this)">
+                            <span>Read More</span>
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="card fade-in-up" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="/lovable-uploads/758bfaaf-3b77-46b2-ab53-a010ae7d7a25.png" 
+                             alt="Think it could be Dengue? Early signs infographic" 
+                             class="responsive-image">
+                    </div>
+                </div>
+                
+                <div class="medical-insight fade-in-up">
+                    <div class="medical-insight-header">
+                        <div class="medical-insight-icon">
+                            <i data-feather="heart"></i>
+                        </div>
+                        <div class="medical-insight-title">Medical Advice</div>
+                    </div>
+                    <div class="medical-insight-quote">
+                        "If a family has children and elderly in their homes then they should proactively implement preventive
+                        steps because if these age groups get the infection then the chances of severe dengue is higher in them."
+                    </div>
+                    <div class="medical-insight-author">
+                        <strong>Dr. Nayana Shetty</strong> MBBS MD
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Geographic Section -->
+        <section id="geographic" class="section" style="background: hsl(var(--muted));">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-primary) / 0.1); color: hsl(var(--health-primary));">
+                        GEOGRAPHIC IMPACT
+                    </span>
+                    <h2 class="section-title">2024 State-wise Impact</h2>
+                </div>
+                
+                <div class="grid grid-2" style="gap: 48px; align-items: stretch;">
+                    <div class="read-more-card fade-in-up">
+                        <div class="grid grid-2" style="margin-bottom: 24px;">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <span class="stat-title">Highest Cases</span>
+                                    <i data-feather="map-pin"></i>
+                                </div>
+                                <div class="stat-value" style="color: hsl(var(--health-success));">Karnataka</div>
+                                <div class="stat-description">32,886 cases</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <span class="stat-title">Most Deaths</span>
+                                    <i data-feather="alert-triangle"></i>
+                                </div>
+                                <div class="stat-value" style="color: hsl(var(--health-danger));">Kerala</div>
+                                <div class="stat-description">128 fatalities</div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: hsl(var(--muted) / 0.5); padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                            <div style="margin-bottom: 12px;">
+                                <strong>Karnataka:</strong> <span style="color: hsl(var(--muted-foreground));">32,886 cases</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <strong>Tamil Nadu:</strong> <span style="color: hsl(var(--muted-foreground));">27,378 cases</span>
+                            </div>
+                            <div>
+                                <strong>Kerala:</strong> <span style="color: hsl(var(--muted-foreground));">20,674 cases</span>
+                                <span style="color: hsl(var(--health-danger)); font-size: 12px; margin-left: 8px;">(128 deaths)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="expandable-content" id="geographic-expanded">
+                            <div style="padding-top: 24px; border-top: 1px solid hsl(var(--border));">
+                                <p style="font-size: 16px; line-height: 1.6;">
+                                    The geographic distribution shows that southern states have been particularly affected,
+                                    with Karnataka leading in total cases. However, Kerala's higher fatality rate indicates
+                                    the need for improved healthcare response and early detection in the region.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <button class="read-more-button" onclick="toggleExpanded('geographic-expanded', this)">
+                            <span>Read More</span>
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="card fade-in-up" style="display: flex; align-items: center; justify-content: center;">
+                        <img src="/lovable-uploads/f71eec06-ffc2-4610-be5d-c5b587a5ce14.png" 
+                             alt="India map showing state-wise dengue data" 
+                             class="responsive-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seasonal Trends Section -->
+        <section id="seasonal" class="section" style="background: white;">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-info) / 0.1); color: hsl(var(--health-info));">
+                        SEASONAL ANALYSIS
+                    </span>
+                    <h2 class="section-title">Seasonal Trends in Dengue: Lab Data and Public Interest</h2>
+                </div>
+                
+                <div class="grid grid-3 fade-in-up" style="margin-bottom: 48px;">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-title">Peak Season</span>
+                            <i data-feather="calendar"></i>
+                        </div>
+                        <div class="stat-value" style="color: hsl(var(--health-info));">Aug-Oct</div>
+                        <div class="stat-description">Consistent yearly pattern</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-title">Google Searches</span>
+                            <i data-feather="search"></i>
+                        </div>
+                        <div class="stat-value" style="color: hsl(var(--health-info));">Peak Together</div>
+                        <div class="stat-description">Match real case trends</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-title">Fever Testing</span>
+                            <i data-feather="bar-chart-3"></i>
+                        </div>
+                        <div class="stat-value" style="color: hsl(var(--health-info));">27.7%</div>
+                        <div class="stat-description">Of all fever tests are for dengue</div>
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up">
+                    <p style="font-size: 18px; line-height: 1.6; margin-bottom: 24px;">
+                        Our PharmEasy Lab data reveals a clear pattern in dengue testing, where cases surge between August and October every year.
+                        <strong style="color: hsl(var(--health-warning));">This trend has remained consistent over the past few years, showing that dengue cases peak during the monsoon and post-monsoon season.</strong>
+                    </p>
+                    
+                    <img src="/lovable-uploads/cad5a477-34fb-44e2-a53b-b00f60c28143.png" 
+                         alt="Seasonal Trends in Dengue chart" 
+                         class="responsive-image" style="margin: 24px 0;">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Common Queries Section -->
+        <section id="queries" class="section" style="background: hsl(var(--muted));">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-secondary) / 0.1); color: hsl(var(--health-secondary));">
+                        USER INSIGHTS
+                    </span>
+                    <h2 class="section-title">What People Search About Dengue</h2>
+                    <p class="section-subtitle">
+                        Understanding common queries helps us address public concerns and improve awareness
+                    </p>
+                </div>
+                
+                <div class="grid grid-3 fade-in-up">
+                    <div class="card">
+                        <h3 style="color: hsl(var(--health-primary)); margin-bottom: 16px; font-weight: 600;">Top Symptoms Searched</h3>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">Fever and body ache</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">Platelet count drop</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">Skin rash</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0;">Severe headache</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: hsl(var(--health-primary)); margin-bottom: 16px; font-weight: 600;">Prevention Queries</h3>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">Mosquito repellent</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">Water storage tips</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">Home remedies</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0;">Immunity boosting</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: hsl(var(--health-primary)); margin-bottom: 16px; font-weight: 600;">Testing & Treatment</h3>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">NS1 antigen test</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">IgM/IgG antibodies</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0; border-bottom: 1px solid hsl(var(--border));">When to test</li>
+                            <li style="margin-bottom: 8px; padding: 8px 0;">Hospital care</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Prevention Section -->
+        <section id="prevention" class="section" style="background: white;">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-success) / 0.1); color: hsl(var(--health-success));">
+                        EARLY DETECTION
+                    </span>
+                    <h2 class="section-title">Essential Tips to Protect Yourself From Dengue</h2>
+                    <p class="section-subtitle">
+                        Dengue cases tend to increase during the rainy season. However, a few simple habits can
+                        help keep you and your loved ones protected and safe.
+                    </p>
+                </div>
+                
+                <div class="read-more-card fade-in-up" style="margin-bottom: 48px;">
+                    <div class="grid grid-3" style="margin-bottom: 32px;">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Prevention Focus</span>
+                                <i data-feather="shield"></i>
+                            </div>
+                            <div class="stat-value">Mosquito Control</div>
+                            <div class="stat-description">Primary defense strategy</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Immunity Boost</span>
+                                <i data-feather="heart"></i>
+                            </div>
+                            <div class="stat-value">Nutrition</div>
+                            <div class="stat-description">Vitamins A, C, E</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Hydration</span>
+                                <i data-feather="droplets"></i>
+                            </div>
+                            <div class="stat-value">Clean Water</div>
+                            <div class="stat-description">Essential for recovery</div>
+                        </div>
+                    </div>
+                    
+                    <div class="prevention-tips">
+                        <div class="prevention-tip">
+                            <div class="prevention-tip-icon">
+                                <i data-feather="shield"></i>
+                            </div>
+                            <div>
+                                <div class="prevention-tip-title">Use Mosquito Repellents</div>
+                                <div class="prevention-tip-description">Mosquitoes thrive during the monsoon. Use repellents and keep your surroundings clean to prevent mosquito breeding.</div>
+                            </div>
+                        </div>
+                        <div class="prevention-tip">
+                            <div class="prevention-tip-icon">
+                                <i data-feather="heart"></i>
+                            </div>
+                            <div>
+                                <div class="prevention-tip-title">Boost Your Immunity</div>
+                                <div class="prevention-tip-description">Eat a balanced diet rich in fruits, vegetables, and protein. Foods high in vitamins A, C and E are particularly good for your immune system.</div>
+                            </div>
+                        </div>
+                        <div class="prevention-tip">
+                            <div class="prevention-tip-icon">
+                                <i data-feather="droplets"></i>
+                            </div>
+                            <div>
+                                <div class="prevention-tip-title">Stay Hydrated</div>
+                                <div class="prevention-tip-description">Drink plenty of clean, filtered water. Avoid street food and beverages. Carry your own water and meals wherever possible.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="expandable-content" id="prevention-expanded">
+                        <div style="padding-top: 32px; border-top: 1px solid hsl(var(--border));">
+                            <div class="prevention-tips">
+                                <div class="prevention-tip">
+                                    <div class="prevention-tip-icon">
+                                        <i data-feather="clock"></i>
+                                    </div>
+                                    <div>
+                                        <div class="prevention-tip-title">Regular Exercise and Rest</div>
+                                        <div class="prevention-tip-description">Maintain a regular exercise routine and ensure you get enough sleep to keep your immune system strong.</div>
+                                    </div>
+                                </div>
+                                <div class="prevention-tip">
+                                    <div class="prevention-tip-icon">
+                                        <i data-feather="users"></i>
+                                    </div>
+                                    <div>
+                                        <div class="prevention-tip-title">Avoid Crowded Places</div>
+                                        <div class="prevention-tip-description">If possible, avoid crowded areas where the risk of infection is higher. Wear a mask if you need to be in crowded places.</div>
+                                    </div>
+                                </div>
+                                <div class="prevention-tip">
+                                    <div class="prevention-tip-icon">
+                                        <i data-feather="alert-triangle"></i>
+                                    </div>
+                                    <div>
+                                        <div class="prevention-tip-title">Sanitise Surfaces</div>
+                                        <div class="prevention-tip-description">Clean and disinfect commonly touched surfaces regularly, such as your phone, doorknobs, and study desks.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="background: linear-gradient(135deg, hsl(var(--health-success) / 0.1), hsl(var(--health-primary) / 0.1)); padding: 32px; border-radius: 12px; margin-top: 32px;">
+                                <h3 style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">
+                                    <i data-feather="check-circle" style="color: hsl(var(--health-success));"></i>
+                                    Steps to Take If You Think You Might Have Dengue
+                                </h3>
+                                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+                                    If you or someone in your family is experiencing symptoms of dengue, get tested promptly.
+                                    To confirm a dengue infection, doctors often recommend tests for the NS1 antigen
+                                    and IgM/IgG antibodies. If you test positive, it's essential to take care of
+                                    yourself and monitor your symptoms closely.
+                                </p>
+                                <p style="font-size: 16px; line-height: 1.6;">
+                                    Rest and hydration are key to recovering from dengue. Drink plenty of fluids, such as
+                                    water, ORS, coconut water, and fresh juices, to prevent dehydration. Monitor symptoms
+                                    between 3 and 7 days after the fever begins, as this is when complications can occur.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="read-more-button" onclick="toggleExpanded('prevention-expanded', this)">
+                        <span>Read More</span>
+                        <i data-feather="chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="fade-in-up" style="text-align: center;">
+                    <img src="https://pharmeasy.in/blog/dengue/Prevention_copy1.webp" 
+                         alt="Dengue prevention infographic" 
+                         class="responsive-image" style="max-width: 800px;">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Demographics Section -->
+        <section id="demographics" class="section" style="background: hsl(var(--muted));">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <span class="section-badge" style="background: hsl(var(--health-primary) / 0.1); color: hsl(var(--health-primary));">
+                        DEMOGRAPHICS
+                    </span>
+                    <h2 class="section-title">Understanding the Demographics</h2>
+                    <p class="section-subtitle">
+                        Analyzing who gets tested and the patterns across different age groups and regions
+                    </p>
+                </div>
+                
+                <div class="grid grid-3 fade-in-up">
+                    <div class="card">
+                        <h3 style="color: hsl(var(--health-primary)); margin-bottom: 24px; font-weight: 600; text-align: center;">Age Distribution</h3>
+                        <div class="stat-card" style="margin-bottom: 16px;">
+                            <div class="stat-value" style="text-align: center; font-size: 24px;">11-30 years</div>
+                            <div class="stat-description" style="text-align: center;">Highest risk group</div>
+                        </div>
+                        <div style="background: hsl(var(--muted) / 0.5); padding: 16px; border-radius: 8px;">
+                            <div style="margin-bottom: 8px;"><strong>11-20:</strong> 28%</div>
+                            <div style="margin-bottom: 8px;"><strong>21-30:</strong> 32%</div>
+                            <div style="margin-bottom: 8px;"><strong>31-40:</strong> 22%</div>
+                            <div><strong>40+:</strong> 18%</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: hsl(var(--health-primary)); margin-bottom: 24px; font-weight: 600; text-align: center;">Gender Split</h3>
+                        <div class="grid grid-2" style="margin-bottom: 16px;">
+                            <div class="stat-card">
+                                <div class="stat-value" style="text-align: center; color: hsl(var(--health-info));">52%</div>
+                                <div class="stat-description" style="text-align: center;">Male</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value" style="text-align: center; color: hsl(var(--health-secondary));">48%</div>
+                                <div class="stat-description" style="text-align: center;">Female</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 14px; color: hsl(var(--muted-foreground)); text-align: center;">
+                            Nearly equal distribution across genders
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: hsl(var(--health-primary)); margin-bottom: 24px; font-weight: 600; text-align: center;">Urban vs Rural</h3>
+                        <div class="stat-card" style="margin-bottom: 16px;">
+                            <div class="stat-value" style="text-align: center; color: hsl(var(--health-warning));">Urban 65%</div>
+                            <div class="stat-description" style="text-align: center;">Higher testing rates</div>
+                        </div>
+                        <div style="background: hsl(var(--muted) / 0.5); padding: 16px; border-radius: 8px;">
+                            <p style="font-size: 14px; text-align: center; margin: 0;">
+                                Urban areas show higher testing rates due to better healthcare access and awareness
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="section" style="background: var(--gradient-hero); color: white; text-align: center;">
+            <div class="container">
+                <div class="fade-in-up">
+                    <span class="section-badge" style="background: rgba(255, 255, 255, 0.2); color: white;">
+                        CONCLUSION
+                    </span>
+                    <h2 class="section-title" style="color: white;">Taking Action Today for a Safer Tomorrow</h2>
+                    <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9); margin-bottom: 48px;">
+                        Knowledge is the first step towards prevention. Stay informed, stay protected.
+                    </p>
+                    
+                    <div class="grid grid-3" style="margin-bottom: 48px;">
+                        <div class="stat-card hero-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Early Detection</span>
+                                <i data-feather="clock"></i>
+                            </div>
+                            <div class="stat-value">Saves Lives</div>
+                            <div class="stat-description">Test promptly when symptoms appear</div>
+                        </div>
+                        <div class="stat-card hero-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Prevention</span>
+                                <i data-feather="shield"></i>
+                            </div>
+                            <div class="stat-value">Best Defense</div>
+                            <div class="stat-description">Mosquito control & hygiene</div>
+                        </div>
+                        <div class="stat-card hero-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Awareness</span>
+                                <i data-feather="heart"></i>
+                            </div>
+                            <div class="stat-value">Community Care</div>
+                            <div class="stat-description">Share knowledge with others</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 32px; border-radius: 16px; backdrop-filter: blur(10px);">
+                        <h3 style="font-size: 24px; margin-bottom: 16px;">Remember: Dengue is preventable.</h3>
+                        <p style="font-size: 18px; line-height: 1.6; margin-bottom: 24px;">
+                            With the right knowledge, timely testing, and preventive measures, we can significantly reduce 
+                            the impact of dengue in our communities. Stay vigilant during monsoon season, maintain good hygiene practices, 
+                            and don't hesitate to seek medical attention when needed.
+                        </p>
+                        <p style="font-size: 16px; opacity: 0.9;">
+                            <strong>Source:</strong> PharmEasy Lab Data Analysis (26 months, 770K+ tests across 40+ states)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Progress Bar
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        
+        // Table of Contents
+        let tocOpen = false;
+        
+        function initTableOfContents() {
+            const tocToggle = document.getElementById('tocToggle');
+            const tocContent = document.getElementById('tocContent');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            tocToggle.addEventListener('click', () => {
+                tocOpen = !tocOpen;
+                tocContent.classList.toggle('show', tocOpen);
+            });
+            
+            // Close TOC when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!tocToggle.contains(e.target) && !tocContent.contains(e.target)) {
+                    tocOpen = false;
+                    tocContent.classList.remove('show');
+                }
+            });
+            
+            // Smooth scroll for TOC links
+            tocLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        tocOpen = false;
+                        tocContent.classList.remove('show');
+                    }
+                });
+            });
+            
+            // Update active section
+            const sections = document.querySelectorAll('section[id]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        tocLinks.forEach(link => link.classList.remove('active'));
+                        const activeLink = document.querySelector(`a[href="#${entry.target.id}"]`);
+                        if (activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+            
+            sections.forEach(section => observer.observe(section));
+        }
+        
+        // Social Share
+        function shareOn(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent('Dengue: The Silent Threat of the Monsoon Season - PharmEasy Research');
+            const text = encodeURIComponent('Understanding dengue patterns, demographics, and seasonal trends through PharmEasy Lab data and global research insights.');
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'whatsapp':
+                    shareUrl = `https://wa.me/?text=${title}%0A%0A${text}%0A%0A${url}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'reddit':
+                    shareUrl = `https://reddit.com/submit?url=${url}&title=${title}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${url}&text=${text}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+        
+        // Animations
+        function initAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // Read More/Less functionality
+        function toggleExpanded(contentId, button) {
+            const content = document.getElementById(contentId);
+            const isExpanded = content.classList.contains('expanded');
+            const icon = button.querySelector('i');
+            const text = button.querySelector('span');
+            
+            if (isExpanded) {
+                content.classList.remove('expanded');
+                content.style.maxHeight = '0';
+                text.textContent = 'Read More';
+                icon.setAttribute('data-feather', 'chevron-down');
+            } else {
+                content.classList.add('expanded');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                text.textContent = 'Read Less';
+                icon.setAttribute('data-feather', 'chevron-up');
+            }
+            
+            feather.replace();
+        }
+        
+        // Mobile responsive adjustments
+        function handleResize() {
+            const isMobile = window.innerWidth <= 768;
+            const tocContainer = document.querySelector('.toc-container');
+            const shareBar = document.querySelector('.share-bar');
+            
+            if (isMobile) {
+                tocContainer.style.display = 'none';
+                shareBar.style.display = 'none';
+            } else {
+                tocContainer.style.display = 'block';
+                shareBar.style.display = 'flex';
+            }
+        }
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove loading class
+            document.body.classList.remove('loading');
+            document.body.classList.add('loaded');
+            
+            // Initialize features
+            initTableOfContents();
+            initAnimations();
+            handleResize();
+            
+            // Event listeners
+            window.addEventListener('scroll', updateScrollProgress);
+            window.addEventListener('resize', handleResize);
+            
+            // Initialize icons
+            feather.replace();
+        });
+    </script>
+</body>
 </html>
